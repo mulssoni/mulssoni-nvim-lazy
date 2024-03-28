@@ -5,8 +5,6 @@
 local keymap = vim.keymap
 local opts = { noremap = true, silent = true }
 
-keymap.set("n", "x", '"_x"')
-
 -- Icrement and decrement numbers
 keymap.set("n", "+", "<C-a>")
 keymap.set("n", "-", "<C-x>")
@@ -25,8 +23,12 @@ keymap.set("n", "<C-j>", function()
   vim.diagnostic.goto_next()
 end, opts)
 
--- Copilot
--- Accept suggestion
-keymap.set("i", "<Tab>", function()
-  require("cmp").complete()
-end, opts)
+vim.keymap.set("i", "<C-y>", 'copilot#Accept("\\<CR>")', {
+  expr = true,
+  replace_keycodes = false,
+})
+vim.g.copilot_no_tab_map = true
+
+-- GitSings
+keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", {})
+keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>", {})
