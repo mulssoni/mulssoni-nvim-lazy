@@ -23,11 +23,13 @@ keymap.set("n", "<C-j>", function()
   vim.diagnostic.goto_next()
 end, opts)
 
+-- Copilot
 vim.keymap.set("i", "<C-y>", 'copilot#Accept("\\<CR>")', {
   expr = true,
   replace_keycodes = false,
 })
 vim.g.copilot_no_tab_map = true
+vim.keymap.set("i", "<C-e>", "<Plug>(copilot-dismiss)")
 
 -- GitSings
 keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", {})
