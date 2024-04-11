@@ -7,6 +7,12 @@ cmp.setup({
     end,
   },
 
+  view = {
+    entries = {
+      follow_cursor = true,
+    },
+  },
+
   mapping = {
     ["<C-Space>"] = cmp.mapping.complete(),
     ["<C-pgup>"] = cmp.mapping.scroll_docs(-4),
