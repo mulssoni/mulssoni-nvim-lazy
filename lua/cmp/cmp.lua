@@ -13,16 +13,16 @@ cmp.setup({
     },
   },
 
-  mapping = {
-    ["<C-Space>"] = cmp.mapping.complete(),
-    ["<C-pgup>"] = cmp.mapping.scroll_docs(-4),
-    ["<C-pgdwn>"] = cmp.mapping.scroll_docs(4),
-    ["<C-e>"] = cmp.mapping.close(),
-    ["<C-y>"] = cmp.mapping.confirm({
-      behavior = cmp.ConfirmBehavior.Insert,
-      select = true,
-    }),
-  },
+  -- mapping = {
+  --   ["<C-Space>"] = cmp.mapping.complete(),
+  --   ["<C-pgup>"] = cmp.mapping.scroll_docs(-4),
+  --   ["<C-pgdwn>"] = cmp.mapping.scroll_docs(4),
+  --   ["<C-e>"] = cmp.mapping.close(),
+  --   ["<C-y>"] = cmp.mapping.confirm({
+  --     behavior = cmp.ConfirmBehavior.Insert,
+  --     select = true,
+  --   }),
+  -- },
 
   sources = {
     { name = "nvim_lua" },
@@ -37,7 +37,6 @@ cmp.setup({
     -- I like the new menu better! Nice work hrsh7th
     native_menu = false,
 
-    -- Let's play with this for a day or two
     ghost_text = false,
   },
   --   formatting = {
