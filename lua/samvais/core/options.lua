@@ -32,6 +32,7 @@ vim.opt.wildignore:append({ "*/node_modules/*" })
 vim.opt.splitbelow = true
 vim.opt.splitright = true
 vim.opt.splitkeep = "cursor"
+vim.opt.cursorline = true
 -- vim.opt.mouse = ""
 
 vim.opt.formatoptions:append({ "r" })

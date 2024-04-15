@@ -34,3 +34,4 @@ vim.keymap.set("i", "<C-e>", "<Plug>(copilot-dismiss)")
 -- GitSings
 keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", {})
 keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>", {})
+
