@@ -1,5 +1,8 @@
 local cmp = require("cmp")
 cmp.setup({
+  completion = {
+    completeopt = "menu,menuone,noselect",
+  },
   mapping = cmp.mapping.preset.insert({
     ["<C-j>"] = cmp.mapping.select_next_item({
       behavior = cmp.SelectBehavior.Replace,

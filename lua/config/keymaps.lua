@@ -35,11 +35,8 @@ vim.keymap.set("i", "<C-e>", "<Plug>(copilot-dismiss)")
 keymap.set("n", "<leader>gp", ":Gitsigns preview_hunk<CR>", {})
 keymap.set("n", "<leader>gb", ":Gitsigns toggle_current_line_blame<CR>", {})
 
--- Delete a word backwards
-keymap.set("n", "dw", 'vb"_d')
-
--- Delete a word backwards
-keymap.set("n", "dw", 'vb"_d')
+-- -- Delete a word backwards
+-- keymap.set("n", "dw", 'vb"_d')
 
 -- New tab
 keymap.set("n", "te", ":tabedit")
@@ -59,3 +56,6 @@ keymap.set("n", "sl", "<C-w>l")
 -- keymap.set("n", "<C-w><right>", "<C-w>>")
 -- keymap.set("n", "<C-w><up>", "<C-w>+")
 -- keymap.set("n", "<C-w><down>", "<C-w>-")
+
+-- Inc Rename
+keymap.set("n", "<leader>rn", ":IncRename ")
