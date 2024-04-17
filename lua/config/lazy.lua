@@ -10,13 +10,7 @@ vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
-    {
-      "LazyVim/LazyVim",
-      import = "lazyvim.plugins",
-      opts = {
-        colorscheme = "rose-pine-moon",
-      },
-    },
+    { "LazyVim/LazyVim", import = "lazyvim.plugins" },
     -- import any extras modules here
     { import = "lazyvim.plugins.extras.lang.typescript" },
     { import = "lazyvim.plugins.extras.lang.json" },
@@ -54,3 +48,47 @@ require("lazy").setup({
     },
   },
 })
+
+-- require("lazyvim.plugins.extras.coding.copilot").setup({
+--   suggestion = {
+--     max_suggestions = 1,
+--   },
+-- })
+
+-- local cmp = require("cmp")
+-- cmp.setup({
+--   mapping = {
+--     ["<C-n>"] = cmp.mapping.select_next_item(),
+--     ["<C-p>"] = cmp.mapping.select_prev_item(),
+--     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+--     ["<C-f>"] = cmp.mapping.scroll_docs(4),
+--     ["<C-Space>"] = cmp.mapping.complete(),
+--     ["<C-e>"] = cmp.mapping.abort(),
+--     ["<C-y>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+--   },
+--   completion = {
+--     completeopt = "menu,menuone,noselect",
+--   },
+--   sources = {
+--     { name = "nvim_lua" },
+--     { name = "nvim_lsp" },
+--     { name = "path" },
+--     { name = "luasnip" },
+--     { name = "buffer" },
+--     { name = "emoji" },
+--   },
+--   comparators = {
+--     -- Below is the default comparitor list and order for nvim-cmp
+--     cmp.config.compare.offset,
+--     cmp.config.compare.exact,
+--     require("copilot_cmp.comparators").prioritize,
+--     -- cmp.config.compare.scopes, --this is commented in nvim-cmp too
+--     cmp.config.compare.score,
+--     cmp.config.compare.recently_used,
+--     cmp.config.compare.locality,
+--     cmp.config.compare.kind,
+--     cmp.config.compare.sort_text,
+--     cmp.config.compare.length,
+--     cmp.config.compare.order,
+--   },
+-- })

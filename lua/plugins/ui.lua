@@ -81,7 +81,7 @@ return {
     },
     opts = {
       options = {
-        mode = "tabs",
+        -- mode = "tabs",
         -- separator_style = "slant",
         show_buffer_close_icons = false,
         show_close_icon = false,
@@ -92,18 +92,18 @@ return {
   -- filename
   {
     "b0o/incline.nvim",
-    dependencies = { "craftzdog/solarized-osaka.nvim" },
+    dependencies = { "rose-pine/neovim" },
     event = "BufReadPre",
     priority = 1200,
     config = function()
-      local colors = require("solarized-osaka.colors").setup()
+      local colors = require("rose-pine.palette")
       require("incline").setup({
         highlight = {
           groups = {
-            InclineNormal = { guibg = colors.magenta500, guifg = colors.base04 },
+            InclineNormal = { guibg = colors.rose, guifg = colors.base },
             InclineNormalNC = {
-              guifg = colors.violet500,
-              guibg = colors.base03,
+              guifg = colors.rose,
+              guibg = colors.base,
             },
           },
         },
