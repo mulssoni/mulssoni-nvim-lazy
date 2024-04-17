@@ -1,4 +1,5 @@
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+
 if not vim.loop.fs_stat(lazypath) then
   -- bootstrap lazy.nvim
   -- stylua: ignore
@@ -6,6 +7,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(vim.env.LAZY or lazypath)
 
+-- vim.cmd("colorscheme rose-pine-moon")
 require("lazy").setup({
   spec = {
     -- add LazyVim and import its plugins
@@ -15,7 +17,7 @@ require("lazy").setup({
     { import = "lazyvim.plugins.extras.lang.json" },
     { import = "lazyvim.plugins.extras.linting.eslint" },
     { import = "lazyvim.plugins.extras.formatting.prettier" },
-    -- { import = "lazyvim.plugins.extras.coding.copilot" },
+    { import = "lazyvim.plugins.extras.coding.copilot" },
     { import = "lazyvim.plugins.extras.lang.tailwind" },
     { import = "lazyvim.plugins.extras.util.mini-hipatterns" },
     -- import/override with your plugins
@@ -48,21 +50,46 @@ require("lazy").setup({
   },
 })
 
-require("noice").setup({
-  lsp = {
-    -- override markdown rendering so that **cmp** and other plugins use **Treesitter**
-    override = {
-      ["vim.lsp.util.convert_input_to_markdown_lines"] = true,
-      ["vim.lsp.util.stylize_markdown"] = true,
-      ["cmp.entry.get_documentation"] = true, -- requires hrsh7th/nvim-cmp
-    },
-  },
-  -- you can enable a preset for easier configuration
-  presets = {
-    bottom_search = true, -- use a classic bottom cmdline for search
-    command_palette = true, -- position the cmdline and popupmenu together
-    long_message_to_split = true, -- long messages will be sent to a split
-    inc_rename = false, -- enables an input dialog for inc-rename.nvim
-    lsp_doc_border = true, -- add a border to hover docs and signature help
-  },
-})
+-- require("lazyvim.plugins.extras.coding.copilot").setup({
+--   suggestion = {
+--     max_suggestions = 1,
+--   },
+-- })
+
+-- local cmp = require("cmp")
+-- cmp.setup({
+--   mapping = {
+--     ["<C-n>"] = cmp.mapping.select_next_item(),
+--     ["<C-p>"] = cmp.mapping.select_prev_item(),
+--     ["<C-b>"] = cmp.mapping.scroll_docs(-4),
+--     ["<C-f>"] = cmp.mapping.scroll_docs(4),
+--     ["<C-Space>"] = cmp.mapping.complete(),
+--     ["<C-e>"] = cmp.mapping.abort(),
+--     ["<C-y>"] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+--   },
+--   completion = {
+--     completeopt = "menu,menuone,noselect",
+--   },
+--   sources = {
+--     { name = "nvim_lua" },
+--     { name = "nvim_lsp" },
+--     { name = "path" },
+--     { name = "luasnip" },
+--     { name = "buffer" },
+--     { name = "emoji" },
+--   },
+--   comparators = {
+--     -- Below is the default comparitor list and order for nvim-cmp
+--     cmp.config.compare.offset,
+--     cmp.config.compare.exact,
+--     require("copilot_cmp.comparators").prioritize,
+--     -- cmp.config.compare.scopes, --this is commented in nvim-cmp too
+--     cmp.config.compare.score,
+--     cmp.config.compare.recently_used,
+--     cmp.config.compare.locality,
+--     cmp.config.compare.kind,
+--     cmp.config.compare.sort_text,
+--     cmp.config.compare.length,
+--     cmp.config.compare.order,
+--   },
+-- })

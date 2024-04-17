@@ -4,6 +4,8 @@ return {
     "williamboman/mason.nvim",
     opts = function(_, opts)
       vim.list_extend(opts.ensure_installed, {
+        "stylua",
+        "selene",
         "luacheck",
         "shellcheck",
         "shfmt",
@@ -17,8 +19,20 @@ return {
   -- lsp servers
   {
     "neovim/nvim-lspconfig",
+    init = function()
+      local keys = require("lazyvim.plugins.lsp.keymaps").get()
+      keys[#keys + 1] = {
+        "gd",
+        function()
+          -- DO NOT RESUSE WINDOW
+          require("telescope.builtin").lsp_definitions({ reuse_win = false })
+        end,
+        desc = "Goto Definition",
+        has = "definition",
+      }
+    end,
     opts = {
-      inlay_hints = { enabled = true },
+      inlay_hints = { enabled = false },
       ---@type lspconfig.options
       servers = {
         cssls = {},
@@ -58,6 +72,13 @@ return {
           },
         },
         html = {},
+        yamlls = {
+          settings = {
+            yaml = {
+              keyOrdering = false,
+            },
+          },
+        },
         lua_ls = {
           -- enabled = false,
           single_file_support = true,
@@ -137,11 +158,4 @@ return {
       },
     },
   },
-  { "hrsh7th/nvim-cmp" },
-  { "hrsh7th/cmp-buffer" },
-  { "hrsh7th/cmp-path" },
-  { "hrsh7th/cmp-nvim-lua" },
-  { "hrsh7th/cmp-nvim-lsp" },
-  { "hrsh7th/cmp-emoji" },
-  { "saadparwaiz1/cmp_luasnip", dependencies = { "L3MON4D3/LuaSnip" } },
 }
