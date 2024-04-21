@@ -5,9 +5,9 @@ vim.api.nvim_set_hl(0, "CmpNormal", { bg = colors.base })
 vim.api.nvim_set_hl(0, "CmpSelectHL", { bg = colors.rose, fg = colors.base })
 
 cmp.setup({
-  completion = {
-    completeopt = "menu,menuone,noselect",
-  },
+  -- completion = {
+  --   completeopt = "menu,menuone,noselect",
+  -- },
   mapping = cmp.mapping.preset.insert({
     ["<C-j>"] = cmp.mapping.select_next_item({
       behavior = cmp.SelectBehavior.Replace,
@@ -32,10 +32,10 @@ cmp.setup({
   sources = cmp.config.sources({
     { name = "nvim_lua" },
     { name = "nvim_lsp" },
+    { name = "copilot" },
     { name = "path" }, -- file system paths
     { name = "buffer" }, -- text within current buffer
     { name = "luasnip" }, -- snippets
-    { name = "copilot" },
     { name = "emoji" },
   }),
   view = {
