@@ -1,6 +1,6 @@
 return {
   {
-    enabled = false,
+    enabled = true,
     "folke/flash.nvim",
     ---@type Flash.Config
     opts = {
@@ -107,7 +107,7 @@ return {
         desc = "Lists Function names, variables, from Treesitter",
       },
       {
-        "sf",
+        ";sf",
         function()
           local telescope = require("telescope")
 
